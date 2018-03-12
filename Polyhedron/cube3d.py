@@ -26,9 +26,6 @@ cube_face = [[0,1,2,3],
 
 polys = [cube_verts[k, :] for k in cube_face]
 
-for k in cube_face:
-    print(k)
-print(polys)
 ax.add_collection3d(Poly3DCollection(polys, facecolor=(1,0,1), linewidth=0.5,
                                      edgecolor=(0,0,0)))
 ax.set_xlim3d([0,2])
