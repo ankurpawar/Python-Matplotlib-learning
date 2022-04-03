@@ -6,9 +6,9 @@ from matplotlib.lines import Line2D
 def get_ferris_wheel(curve_const, curve_range):
     t = np.linspace(curve_range[0], curve_range[1], 1000)
 
-    z = np.exp(np.complex(0,curve_const[0])*t)      \
-        + np.exp(np.complex(0,curve_const[1])*t)/2  \
-        + np.exp(np.complex(0,curve_const[2])*t)/3
+    z = np.exp(complex(0,curve_const[0])*t)      \
+        + np.exp(complex(0,curve_const[1])*t)/2  \
+        + np.exp(complex(0,curve_const[2])*t)/3
     y = z.real
     x = z.imag
 
