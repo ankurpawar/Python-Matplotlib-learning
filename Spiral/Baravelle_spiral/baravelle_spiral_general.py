@@ -29,17 +29,17 @@ choice = int(input("Enter 3-8"))
 
 iterations = 25
 N = choice
-phi = pi/N
-t = np.linspace(0+phi, 2*pi+phi, N+1)
+phi = pi / N
+t = np.linspace(0 + phi, 2 * pi + phi, N + 1)
 limb_len = 1
-theta = 0
+theta = 0.0
 A = np.array([[phi],
-              [2*phi],
-              [3*phi]])
+              [2 * phi],
+              [3 * phi]])
 
-B = np.array([[np.cos(pi/N)],
+B = np.array([[np.cos(pi / N)],
               [1],
-              [np.cos(pi/N)]])
+              [np.cos(pi / N)]])
 
 patches = []
 
@@ -48,15 +48,15 @@ for k in range(0, iterations):
         th = t[n] + theta + A
         ro = limb_len * B
         x,y = pol2cart(th, ro)
-        poly = np.hstack((x,y))
+        poly = np.hstack((x, y))
         polygon = Polygon(poly, True)
         patches.append(polygon)
-    theta = theta+phi
-    limb_len = limb_len*np.cos(pi/N)
+    theta = theta + phi
+    limb_len = limb_len * np.cos(pi / N)
 
 p = PatchCollection(patches,cmap = plt.cm.Blues)
 
-colors = range(N) * iterations
+colors = list(range(N)) * iterations
 p.set_array(np.array(colors))
 
 fig, ax = plt.subplots()
