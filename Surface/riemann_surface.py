@@ -11,7 +11,7 @@ X, Y = np.meshgrid(X, Y)
 Z = X + Y*1j
 
 fig = plt.figure()
-ax = Axes3D(fig)
+ax = fig.add_subplot(projection='3d')
 ax.plot_surface(Z.real, Z.imag, np.abs(Z), rstride=1, cstride=1, cmap=cm.viridis)
-ax.set_aspect('equal')
+ax.set_aspect('auto')
 plt.show()
