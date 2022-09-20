@@ -13,7 +13,8 @@ y = (7+3*np.cos(V))*np.sin(U)
 z = 3*np.sin(V)
 
 fig = plt.figure()
-ax = Axes3D(fig)
+ax = fig.add_subplot(111, projection="3d")
+ax.set_box_aspect((np.ptp(x), np.ptp(y), np.ptp(z)))
 ax.plot_surface(x, y, z, rstride=1, cstride=1, cmap=cm.viridis)
-ax.set_aspect('equal')
+
 plt.show()
